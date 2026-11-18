@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MableBank.Api/MableBank.Api.csproj" />
+    <Project Path="src/MableBank.Domain/MableBank.Domain.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MableBank.Tests/MableBank.Tests.csproj" />
+  </Folder>
+</Solution>
