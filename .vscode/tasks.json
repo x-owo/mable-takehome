@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "${workspaceFolder}/MableBank.slnx", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "test",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test", "${workspaceFolder}/MableBank.slnx", "/property:GenerateFullPaths=true"],
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "test (detailed)",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["test", "${workspaceFolder}/MableBank.slnx", "--logger", "console;verbosity=detailed", "/property:GenerateFullPaths=true"],
+      "group": "test",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "test (watch)",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["watch", "test", "--project", "${workspaceFolder}/tests/MableBank.Tests/MableBank.Tests.csproj"],
+      "group": "test",
+      "isBackground": true,
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
