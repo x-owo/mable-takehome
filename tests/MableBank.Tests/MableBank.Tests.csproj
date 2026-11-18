@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\mable_*.csv" Link="SampleData\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\src\MableBank.Domain\MableBank.Domain.csproj" />
     <ProjectReference Include="..\..\src\MableBank.Api\MableBank.Api.csproj" />
   </ItemGroup>
