@@ -1,3 +1,36 @@
-@MableBank.Api_HostAddress = http://localhost:5223
+@host = http://localhost:5223
+@company = alpha-sales
 
-###
+### Load Alpha Sales' starting balances
+PUT {{host}}/companies/{{company}}/accounts
+Content-Type: text/csv
+
+1111234522226789,5000.00
+1111234522221234,10000.00
+2222123433331212,550.00
+1212343433335665,1200.00
+3212343433335755,50000.00
+
+### List accounts
+GET {{host}}/companies/{{company}}/accounts
+
+### Get one account
+GET {{host}}/companies/{{company}}/accounts/1111234522226789
+
+### Apply the day's transfers
+POST {{host}}/companies/{{company}}/transfers
+Content-Type: text/csv
+
+1111234522226789,1212343433335665,500.00
+3212343433335755,2222123433331212,1000.00
+3212343433335755,1111234522226789,320.50
+1111234522221234,1212343433335665,25.60
+
+### Transfers that fail: overdraft, unknown account, same account, malformed row
+POST {{host}}/companies/{{company}}/transfers
+Content-Type: text/csv
+
+2222123433331212,1111234522226789,99999.00
+9999999999999999,1111234522226789,1.00
+1111234522226789,1111234522226789,1.00
+not,a,valid,row
