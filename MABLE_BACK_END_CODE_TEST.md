@@ -38,7 +38,8 @@ Data Structure
 
 ## Tests
 
-* [ ] uses rspec
+
+* [ ] uses rspec (or equivalent)
 * [ ] has some coverage
 * [ ] has good coverage
 * [ ] tests are orthogonal
